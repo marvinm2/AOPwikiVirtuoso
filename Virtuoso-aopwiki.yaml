@@ -74,11 +74,11 @@ objects:
           - containerPort: 8890
           - containerPort: 1111
           volumeMounts:
-            - name: pvc-4d2b7f9c-44df-11e9-8eec-fa163eca01d7
-              mountPath: "/data"
+            - name: "aopwikidata"
+              mountPath: "/aopwikidata"
               
         volumes:
-        - name: pvc-4d2b7f9c-44df-11e9-8eec-fa163eca01d7
+        - name: "aopwikidata"
           persistentVolumeClaim:
             claimName: aopwiki-target-claim
 

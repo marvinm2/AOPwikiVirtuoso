@@ -14,8 +14,6 @@ parameters:
   value: bigcatum
 - name: LOADER_IMAGE
   value: aopwikirdf
-- name: LOADER_SOURCE_CLAIM_NAME
-  value: aopwiki-source-claim
 - name: LOADER_TARGET_CLAIM_NAME
   value: aopwiki-target-claim
 
@@ -41,16 +39,11 @@ objects:
           - 'sh'
           - '-c'
           - 'ls'
-          - '/code/docker-entrypoint.sh'
+          - '/data/docker-entrypoint.sh'
           volumeMounts:
-          - name: aopwiki-source
-            mountPath: /data
           - name: aopwiki-target
             mountPath: /aopwikidata
         volumes:
-        - name: aopwiki-source
-          persistentVolumeClaim:
-            claimName: ${LOADER_SOURCE_CLAIM_NAME}
         - name: aopwiki-target
           persistentVolumeClaim:
             claimName: ${LOADER_TARGET_CLAIM_NAME}
