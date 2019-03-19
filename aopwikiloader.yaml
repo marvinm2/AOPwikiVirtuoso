@@ -35,11 +35,6 @@ objects:
         - image: ${LOADER_REGISTRY}/${LOADER_IMAGE}
           name: aopwikiloader
           imagePullPolicy: Always
-          command:
-          - 'sh'
-          - '-c'
-          - 'ls'
-          - '/data/docker-entrypoint.sh'
           volumeMounts:
           - name: aopwiki-target
             mountPath: /aopwikidata

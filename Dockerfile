@@ -4,4 +4,5 @@ WORKDIR /data
 COPY aopwiki.ttl .
 COPY aopwiki.ttl.graph .
 COPY docker-entrypoint.sh ${APP_ROOT}/
-VOLUME /data
+WORKDIR ${APP_ROOT}
+CMD sh docker-entrypoint.sh
