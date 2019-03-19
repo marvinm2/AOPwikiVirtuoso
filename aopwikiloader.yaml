@@ -1,0 +1,58 @@
+---
+
+
+kind: Template
+apiVersion: v1
+metadata:
+  name: aopwikiloader
+labels:
+  template: aopwikiloader
+
+parameters:
+
+- name: LOADER_REGISTRY
+  value: bigcatum
+- name: LOADER_IMAGE
+  value: aopwikirdf
+- name: LOADER_SOURCE_CLAIM_NAME
+  value: aopwiki-source-claim
+- name: LOADER_TARGET_CLAIM_NAME
+  value: aopwiki-target-claim
+
+objects:
+
+- kind: Job
+  apiVersion: batch/v1
+  metadata:
+    name: aopwikiloader
+
+
+
+  spec:
+    template:
+      metadata:
+        name: aopwikiloader
+      spec:
+        containers:
+        - image: ${LOADER_REGISTRY}/${LOADER_IMAGE}
+          name: aopwikiloader
+          imagePullPolicy: Always
+          command:
+          - 'sh'
+          - '-c'
+          - 'ls'
+          - '/code/docker-entrypoint.sh'
+          volumeMounts:
+          - name: aopwiki-source
+            mountPath: /data
+          - name: aopwiki-target
+            mountPath: /aopwikidata
+        volumes:
+        - name: aopwiki-source
+          persistentVolumeClaim:
+            claimName: ${LOADER_SOURCE_CLAIM_NAME}
+        - name: aopwiki-target
+          persistentVolumeClaim:
+            claimName: ${LOADER_TARGET_CLAIM_NAME}
+  
+        restartPolicy: Never
