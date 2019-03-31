@@ -1,6 +1,6 @@
 ### Example query #1: From an AOP, give me all measurement methods.
 
-```
+```sparql
 prefix dc: <http://purl.org/dc/elements/1.1/>
 prefix dcterms: <http://purl.org/dc/terms/>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -21,7 +21,7 @@ where {
 ```
 ### Example query #2: Provide me with all Key Events that could result from a certain chemical.
 
-```
+```sparql
 prefix dc: <http://purl.org/dc/elements/1.1/>
 prefix dcterms: <http://purl.org/dc/terms/>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -52,7 +52,7 @@ where {
 
 
 ### Example query #3: Give me all Molecular Initiating Events that lead to a particular Adverse Outcome.
-```
+```sparql
 prefix dc: <http://purl.org/dc/elements/1.1/>
 prefix aop: <http://identifiers.org/aop/>
 prefix aopo: <http://aopkb.org/aop_ontology#>
@@ -75,7 +75,7 @@ where {
 
 ### Example query #4: From all chemicals in AOP-Wiki, give me all molecular pathways of WikiPathways that contain the chemical.
 
-```
+```sparql
 prefix dc: <http://purl.org/dc/elements/1.1/>
 prefix dcterms: <http://purl.org/dc/terms/>
 prefix cheminf: <http://semanticscience.org/resource/> 
