@@ -1,5 +1,6 @@
 ### Example query #1: From an AOP, give me all measurement methods.
 
+```
 prefix dc: <http://purl.org/dc/elements/1.1/>
 prefix dcterms: <http://purl.org/dc/terms/>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -17,10 +18,10 @@ where {
  rdfs:label ?AopLabel .
  filter (?aop = aop:12)
 }
-
+```
 ### Example query #2: Provide me with all Key Events that could result from a certain chemical.
 
-
+```
 prefix dc: <http://purl.org/dc/elements/1.1/>
 prefix dcterms: <http://purl.org/dc/terms/>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -47,11 +48,11 @@ where {
  
  filter (?chemical = casrn:107-18-6)
 }
-
+```
 
 
 ### Example query #3: Give me all Molecular Initiating Events that lead to a particular Adverse Outcome.
-
+```
 prefix dc: <http://purl.org/dc/elements/1.1/>
 prefix aop: <http://identifiers.org/aop/>
 prefix aopo: <http://aopkb.org/aop_ontology#>
@@ -70,9 +71,11 @@ where {
  
  filter (?KE = ke:345)
 }
+```
 
 ### Example query #4: From all chemicals in AOP-Wiki, give me all molecular pathways of WikiPathways that contain the chemical.
 
+```
 prefix dc: <http://purl.org/dc/elements/1.1/>
 prefix dcterms: <http://purl.org/dc/terms/>
 prefix cheminf: <http://semanticscience.org/resource/> 
@@ -98,3 +101,4 @@ select *where {
      ?PathwayURI a wp:Pathway ;
      dcterms:identifier ?PathwayID.
 }}}} order by ?ChemicalName
+```
