@@ -3,9 +3,10 @@ kind: PersistentVolumeClaim
 metadata:
   name: aopwiki-target-claim
 spec:
+  volumeName: "pv-aopwiki-target"
   accessModes:
   - ReadWriteMany
   resources:
      requests:
-       storage: 5Mi
+       storage: 10Mi
 

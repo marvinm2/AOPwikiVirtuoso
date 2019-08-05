@@ -8,6 +8,16 @@ To set up a Virtuoso SPARQL endpoint in OpenShift, there are three deployments r
 2. PersistentVolumeClaim
 3. Loader-job deployment
 
+The deployment relies on a project (namespace) called `aopwiki` and the ability to run containers as root. The project should have an NFS **Persistent Volume** available and a **Service Account** that permits Pods (containers) to run with root privilege. If a persistent volume or service account does not exist contact the cluster administrator so that they can be created.
+
+The system administrator simply needs to add a suitable service account to the project
+with the following commands: -
+
+`` oc project aopwiki
+ oc create serviceaccount aopwiki
+ oc adm policy add-scc-to-user anyuid -z aopwiki``
+
+
 ### Virtuoso Deployment configuration
 The `Virtuoso-aopwiki.yaml` file uses an existing Docker Image from Dockerhub (openlink/virtuoso-opensource-7) and deploys it with a mounted volume from a PersistentVolumeClaim in OpenShift. 
 

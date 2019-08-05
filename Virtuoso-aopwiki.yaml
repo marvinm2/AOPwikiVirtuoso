@@ -66,6 +66,8 @@ objects:
         labels:
           name: virtuoso-aopwiki
       spec:
+        serviceAccountName: aopwiki
+
         containers:
         - image: openlink/virtuoso-opensource-7:${IMAGE_TAG}
           imagePullPolicy: IfNotPresent
@@ -81,7 +83,6 @@ objects:
         - name: "aopwikidata"
           persistentVolumeClaim:
             claimName: aopwiki-target-claim
-
 - kind: Service
   apiVersion: v1
   metadata:
