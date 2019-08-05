@@ -14,7 +14,9 @@ The system administrator simply needs to add a suitable service account to the p
 with the following commands: -
 
 `` oc project aopwiki``
+
 ``oc create serviceaccount aopwiki``
+
 ``oc adm policy add-scc-to-user anyuid -z aopwiki``
 
 ### Virtuoso Deployment configuration
