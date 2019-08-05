@@ -12,13 +12,11 @@ The deployment relies on a project (namespace) called `aopwiki` and the ability 
 
 The system administrator simply needs to add a suitable service account to the project
 with the following commands: -
-
-`` oc project aopwiki``
-
-``oc create serviceaccount aopwiki``
-
-``oc adm policy add-scc-to-user anyuid -z aopwiki``
-
+```
+oc project aopwiki
+oc create serviceaccount aopwiki
+oc adm policy add-scc-to-user anyuid -z aopwiki
+```
 ### Virtuoso Deployment configuration
 The `Virtuoso-aopwiki.yaml` file uses an existing Docker Image from Dockerhub (openlink/virtuoso-opensource-7) and deploys it with a mounted volume from a PersistentVolumeClaim in OpenShift. 
 
@@ -39,6 +37,6 @@ Remove the previous loader job by
 Activate the new dataloader job by
 ``oc process -f aopwikiloader.yaml | oc create -f -``
 
-Enter the running Virtuoso pod by ``oc rsh <pod>``, remove the old `.ttl` file and replace it with the new one from the mounted folder `/aopwikidata` by entering ``mv ../../../aopwikidata/aopwiki-20190716.ttl .``.
+Enter the running Virtuoso pod by ``oc rsh <pod>``, remove the old `.ttl` file and replace it with the new one from the mounted folder `/aopwikidata` by entering ``mv ../../../aopwikidata/AOPWikiRDF.ttl .``.
 
 From this point, enter ``isql`` and configure the Virtuoso SQL according to step 6 of the guidelines for a local Virtuoso Docker image with AOP-Wiki RDF: https://github.com/marvinm2/AOPWikiRDF.
