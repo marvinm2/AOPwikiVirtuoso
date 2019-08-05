@@ -13,10 +13,9 @@ The deployment relies on a project (namespace) called `aopwiki` and the ability 
 The system administrator simply needs to add a suitable service account to the project
 with the following commands: -
 
-`` oc project aopwiki
- oc create serviceaccount aopwiki
- oc adm policy add-scc-to-user anyuid -z aopwiki``
-
+`` oc project aopwiki``
+``oc create serviceaccount aopwiki``
+``oc adm policy add-scc-to-user anyuid -z aopwiki``
 
 ### Virtuoso Deployment configuration
 The `Virtuoso-aopwiki.yaml` file uses an existing Docker Image from Dockerhub (openlink/virtuoso-opensource-7) and deploys it with a mounted volume from a PersistentVolumeClaim in OpenShift. 
