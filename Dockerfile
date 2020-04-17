@@ -5,6 +5,8 @@ COPY AOPWikiRDF.ttl .
 COPY AOPWikiRDF.ttl.graph .
 COPY AOPWikiRDF-Void.ttl .
 COPY AOPWikiRDF-Void.ttl.graph .
+COPY AOPWikiRDF-genes.ttl .
+COPY AOPWikiRDF-genes.ttl.graph .
 COPY docker-entrypoint.sh ${APP_ROOT}/
 WORKDIR ${APP_ROOT}
 CMD sh docker-entrypoint.sh
